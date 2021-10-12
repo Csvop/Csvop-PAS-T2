@@ -2,6 +2,7 @@ package com.bcopstein.adptadores.controllers;
 
 import java.util.List;
 
+import com.bcopstein.aplicacao.casosDeUso.UC_EfetivarVenda;
 import com.bcopstein.negocio.entidades.Produto;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,16 +14,16 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/vendas")
 public class Controller {
-    
+    private UC_EfetivarVenda efetivarVenda;
     
     @Autowired
-    public Controller() {
-        //Vazio por enquanto, esperando os <Use Cases>.
+    public Controller(UC_EfetivarVenda efetivarVenda) {
+        this.efetivarVenda = efetivarVenda;
     }
 
     @GetMapping("/produtos")
     @CrossOrigin(origins = "*")
     public List<Produto> todosProdutos() {
-        return null;
+        return efetivarVenda.run();
     }
 }

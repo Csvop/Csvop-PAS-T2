@@ -16,27 +16,33 @@ public class Venda{
     }
 
 
-
     public Integer[] calculaSubtotal(@RequestBody final ItemVenda[] itens) {
     Integer subtotal = 0;
     Integer imposto = 0;
 
-    for (final ItemVenda it : itens) {
-        // Procurar o produto pelo código
-        final Produto prod =
-            produtos.stream().filter(p -> p.getCodigo() == it.getCodigo()).findAny().orElse(null);
+        for (final ItemVenda it : itens) {
+            // Procurar o produto pelo código
+            final Produto prod =
+                prod.stream().filter(p -> p.getCodigo() == it.getCodigo()).findAny().orElse(null);
 
-        if (prod != null) {
-        subtotal += (int) (prod.getPreco() * it.getQuantidade());
-        } else {
-        throw new IllegalArgumentException("Codigo invalido");
+            if (prod != null) {
+            subtotal += (int) (prod.getPreco() * it.getQuantidade());
+            } else {
+            throw new IllegalArgumentException("Codigo invalido");
+            }
         }
+        return subtotal;
     }
-    imposto = (int) (subtotal * 0.1);
-    final Integer[] resp = new Integer[3];
-    resp[0] = subtotal;
-    resp[1] = imposto;
-    resp[2] = subtotal + imposto;
-    return resp;
+
+    public int imposto(int imposto){
+
+        imposto = (int) (subtotal * 0.1);
+
+    }
+
+    public int totalPagar(int total){
+
+        total = subtotal + imposto;
+
     }
 }
