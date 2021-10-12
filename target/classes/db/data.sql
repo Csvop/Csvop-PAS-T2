@@ -1,0 +1,1 @@
+INSERT INTO produto (codigo,descricao,preco) VALUES (1, 'Mouse Dell', 83.0);
