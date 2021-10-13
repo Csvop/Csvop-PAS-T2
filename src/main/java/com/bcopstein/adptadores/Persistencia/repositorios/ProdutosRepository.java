@@ -1,7 +1,8 @@
-package com.bcopstein.adptadores.Persistencia;
+package com.bcopstein.adptadores.Persistencia.repositorios;
 
 import java.util.List;
 
+import com.bcopstein.adptadores.Persistencia.cruds.IProdutoCRUD;
 import com.bcopstein.negocio.entidades.Produto;
 import com.bcopstein.negocio.repositorios.IProdutosRepository;
 

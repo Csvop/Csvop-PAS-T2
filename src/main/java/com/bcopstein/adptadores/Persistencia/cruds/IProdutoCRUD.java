@@ -1,4 +1,4 @@
-package com.bcopstein.adptadores.Persistencia;
+package com.bcopstein.adptadores.Persistencia.cruds;
 
 import java.util.List;
 

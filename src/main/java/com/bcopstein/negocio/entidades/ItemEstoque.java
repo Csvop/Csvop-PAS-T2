@@ -1,18 +1,30 @@
 package com.bcopstein.negocio.entidades;
 
-public class ItemEstoque{
+import javax.persistence.Entity;
+import javax.persistence.Id;
 
-    int quantidadeDisponivel;
+@Entity
+public class ItemEstoque {
+    @Id
+    private long codProduto;
+    private int quantidadeDisponivel;
 
-    public ItemEstoque(int quantidadeDisponivel){
+    public ItemEstoque(long codProduto, int quantidadeDisponivel){
         this.quantidadeDisponivel = quantidadeDisponivel;
+        this.codProduto = codProduto;
     }
 
-    public int getQuantidadeDisponivel(){
+    public ItemEstoque() {}
+
+    public int getQuantidadeDisponivel() {
         return quantidadeDisponivel;
     }
-
-    public void setQuantidadeDisponivel(int quantidadeDisponivel){
+    public void setQuantidadeDisponivel(int quantidadeDisponivel) {
         this.quantidadeDisponivel = quantidadeDisponivel;
+    }
+
+    @Override
+    public String toString() {
+        return super.toString();
     }
 }
