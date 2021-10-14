@@ -19,10 +19,10 @@ public class Produto {
 
   public Produto(){}
 
-  public long getId() {
+  public long getCodigo() {
     return codigo;
   }
-  public void setId(long codigo) {
+  public void setCodigo(long codigo) {
     this.codigo = codigo;
   }
   public String getDescricao() {

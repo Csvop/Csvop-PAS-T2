@@ -7,20 +7,29 @@ import javax.persistence.Id;
 public class ItemEstoque {
     @Id
     private long codProduto;
-    private int quantidadeDisponivel;
+    private int quantidade;
 
-    public ItemEstoque(long codProduto, int quantidadeDisponivel){
-        this.quantidadeDisponivel = quantidadeDisponivel;
+    public ItemEstoque(long codProduto, int quantidade){
+        this.quantidade = quantidade;
         this.codProduto = codProduto;
     }
 
     public ItemEstoque() {}
 
-    public int getQuantidadeDisponivel() {
-        return quantidadeDisponivel;
+    public long getCodProduto() {
+        return codProduto;
     }
-    public void setQuantidadeDisponivel(int quantidadeDisponivel) {
-        this.quantidadeDisponivel = quantidadeDisponivel;
+
+    public void setCodProduto(long codProduto) {
+        this.codProduto = codProduto;
+    }
+
+    public int getQuantidade() {
+        return quantidade;
+    }
+
+    public void setQuantidade(int quantidade) {
+        this.quantidade = quantidade;
     }
 
     @Override

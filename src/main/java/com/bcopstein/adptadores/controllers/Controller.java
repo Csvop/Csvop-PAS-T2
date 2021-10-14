@@ -1,10 +1,9 @@
 package com.bcopstein.adptadores.controllers;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import com.bcopstein.aplicacao.casosDeUso.UC_ConsultarProdutos;
-import com.bcopstein.negocio.entidades.Produto;
+import com.bcopstein.aplicacao.dtos.ProdutoDTO;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -24,7 +23,7 @@ public class Controller {
 
     @GetMapping("/produtos")
     @CrossOrigin(origins = "*")
-    public List<Produto> todosProdutos() {
+    public List<ProdutoDTO> todosProdutos() {
         return consultarProdutos.run();
     }
 }

@@ -2,7 +2,7 @@ package com.bcopstein.aplicacao.casosDeUso;
 
 import java.util.List;
 
-import com.bcopstein.negocio.entidades.Produto;
+import com.bcopstein.aplicacao.dtos.ProdutoDTO;
 import com.bcopstein.negocio.servicos.ServicoVendas;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,7 +17,7 @@ public class UC_ConsultarProdutos {
         this.servicoVendas = servicoVendas;
     }
 
-    public List<Produto> run() {
+    public List<ProdutoDTO> run() {
         return servicoVendas.todos();
     }
 }
