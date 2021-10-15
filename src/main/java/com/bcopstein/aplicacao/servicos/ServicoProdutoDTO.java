@@ -36,4 +36,8 @@ public class ServicoProdutoDTO {
         });
         return produtos;
     }
+
+    public boolean valida(int codigo, int quantidade) {
+        return todos().stream().anyMatch(p -> p.getCodigo() == codigo && p.getQuantidade() >= quantidade);
+    }
 }

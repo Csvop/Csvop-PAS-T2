@@ -1,23 +1,20 @@
 package com.bcopstein.aplicacao.casosDeUso;
 
-import java.util.List;
-
-import com.bcopstein.aplicacao.dtos.ProdutoDTO;
 import com.bcopstein.aplicacao.servicos.ServicoProdutoDTO;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
-public class UC_ConsultarProdutos {
+public class UC_AutorizaProduto {
     private ServicoProdutoDTO servicoProdutoDTO;
 
     @Autowired
-    public UC_ConsultarProdutos(ServicoProdutoDTO servicoProdutoDTO) {
+    public UC_AutorizaProduto(ServicoProdutoDTO servicoProdutoDTO) {
         this.servicoProdutoDTO = servicoProdutoDTO;
     }
 
-    public List<ProdutoDTO> run() {
-        return servicoProdutoDTO.todos();
+    public boolean run(int codigo, int quantidade) {
+        return servicoProdutoDTO.valida(codigo, quantidade);
     }
 }
