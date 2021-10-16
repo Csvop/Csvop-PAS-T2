@@ -1,7 +1,5 @@
 package com.bcopstein.negocio.entidades;
 
-import java.sql.Date;
-
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
@@ -9,12 +7,20 @@ import javax.persistence.Id;
 public class Venda {
     @Id
     public long codigo;
-    public Date data;
+    public String data_venda;
+    public String descricao;
+    public long cod_prod;
+    public int quantidade;
     
-    public Venda(long codigo, Date data) {
+    public Venda(long codigo, String data_venda, String descricao, long cod_prod, int quantidade) {
         this.codigo = codigo;
-        this.data = data;
+        this.data_venda = data_venda;
+        this.descricao = descricao;
+        this.cod_prod = cod_prod;
+        this.quantidade = quantidade;
     }
+
+    public Venda(){}
 
     public long getCodigo() {
         return codigo;
@@ -24,16 +30,41 @@ public class Venda {
         this.codigo = codigo;
     }
 
-    public Date getData() {
-        return data;
+    public String getData_venda() {
+        return data_venda;
     }
 
-    public void setData(Date data) {
-        this.data = data;
+    public void setData_venda(String data_venda) {
+        this.data_venda = data_venda;
+    }
+
+    public String getDescricao() {
+        return descricao;
+    }
+
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
+    }
+
+    public long getCod_prod() {
+        return cod_prod;
+    }
+
+    public void setCod_prod(long cod_prod) {
+        this.cod_prod = cod_prod;
+    }
+
+    public int getQuantidade() {
+        return quantidade;
+    }
+
+    public void setQuantidade(int quantidade) {
+        this.quantidade = quantidade;
     }
 
     @Override
     public String toString() {
-        return "Venda [codigo=" + codigo + ", data=" + data + "]";
+        return "Venda [cod_prod=" + cod_prod + ", codigo=" + codigo + ", data_venda=" + data_venda + ", descricao=" + descricao
+                + ", quantidade=" + quantidade + "]";
     }
 }

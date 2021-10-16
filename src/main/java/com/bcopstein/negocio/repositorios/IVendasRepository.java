@@ -11,4 +11,5 @@ public interface IVendasRepository {
     //public void salvar(Venda venda);
     public List<Venda> todasVendas();
     public List<ItemVenda> todosItemVenda(); 
+    public boolean salvaVenda(Venda venda);
 }

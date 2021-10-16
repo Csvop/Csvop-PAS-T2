@@ -1,7 +1,10 @@
 package com.bcopstein.negocio.servicos;
 
+import java.util.List;
+
 import com.bcopstein.negocio.entidades.ItemVenda;
 import com.bcopstein.negocio.entidades.Produto;
+import com.bcopstein.negocio.entidades.Venda;
 import com.bcopstein.negocio.repositorios.IProdutosRepository;
 import com.bcopstein.negocio.repositorios.IVendasRepository;
 
@@ -41,5 +44,9 @@ public class ServicoDeVendas {
         resp[1] = imposto;
         resp[2] = subtotal + imposto;
         return resp;
+    }
+
+    public List<Venda> todos() {
+        return vendasRepository.todasVendas();
     }
 }

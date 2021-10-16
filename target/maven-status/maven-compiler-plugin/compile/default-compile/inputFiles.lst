@@ -7,6 +7,7 @@
 /workspaces/VerVal/SvBkEndProt/src/main/java/com/bcopstein/negocio/repositorios/IProdutosRepository.java
 /workspaces/VerVal/SvBkEndProt/src/main/java/com/bcopstein/negocio/servicos/ServicoDeProduto.java
 /workspaces/VerVal/SvBkEndProt/src/main/java/com/bcopstein/adptadores/Persistencia/repositorios/VendasRepository.java
+/workspaces/VerVal/SvBkEndProt/src/main/java/com/bcopstein/aplicacao/casosDeUso/UC_ConsultarVendas.java
 /workspaces/VerVal/SvBkEndProt/src/main/java/com/bcopstein/negocio/servicos/ServicoDeVendas.java
 /workspaces/VerVal/SvBkEndProt/src/main/java/com/bcopstein/aplicacao/casosDeUso/UC_EfetivarVenda.java
 /workspaces/VerVal/SvBkEndProt/src/main/java/com/bcopstein/adptadores/Persistencia/cruds/IProdutoCRUD.java

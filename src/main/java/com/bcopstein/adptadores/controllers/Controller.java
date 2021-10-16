@@ -5,8 +5,10 @@ import java.util.List;
 import com.bcopstein.aplicacao.casosDeUso.UC_AutorizaProduto;
 import com.bcopstein.aplicacao.casosDeUso.UC_CalculaSubtotal;
 import com.bcopstein.aplicacao.casosDeUso.UC_ConsultarProdutos;
+import com.bcopstein.aplicacao.casosDeUso.UC_ConsultarVendas;
 import com.bcopstein.aplicacao.dtos.ProdutoDTO;
 import com.bcopstein.negocio.entidades.ItemVenda;
+import com.bcopstein.negocio.entidades.Venda;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -23,13 +25,15 @@ public class Controller {
     private UC_ConsultarProdutos consultarProdutos;
     private UC_AutorizaProduto autorizaProduto;
     private UC_CalculaSubtotal calculaSubtotal;
+    private UC_ConsultarVendas consultarVendas;
     
     @Autowired
     public Controller(UC_ConsultarProdutos consultarProdutos, UC_AutorizaProduto autorizaProduto,
-            UC_CalculaSubtotal calculaSubtotal) {
+            UC_CalculaSubtotal calculaSubtotal, UC_ConsultarVendas consultarVendas) {
         this.consultarProdutos = consultarProdutos;
         this.autorizaProduto = autorizaProduto;
         this.calculaSubtotal = calculaSubtotal;
+        this.consultarVendas = consultarVendas;
     }
 
     @GetMapping("/produtos")
@@ -57,5 +61,11 @@ public class Controller {
     @CrossOrigin(origins = "*")
     public int[] calculaSubtotal(@RequestBody final ItemVenda[] itens) {
         return calculaSubtotal.run(itens);
+    }
+
+    @GetMapping("/historico")
+    @CrossOrigin(origins = "*")
+    public List<Venda> vendasEfetuadas() {
+        return consultarVendas.run();
     }
 }

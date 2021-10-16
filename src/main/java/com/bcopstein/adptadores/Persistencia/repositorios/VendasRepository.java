@@ -31,4 +31,10 @@ public class VendasRepository implements IVendasRepository{
     public List<ItemVenda> todosItemVenda() {
         return itemVendaCRUD.findAll();
     }
+
+    @Override
+    public boolean salvaVenda(Venda venda) {
+        vendasCRUD.save(venda);
+        return true;
+    }
 }
