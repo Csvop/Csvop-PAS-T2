@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.bcopstein.aplicacao.casosDeUso.UC_AutorizaProduto;
 import com.bcopstein.aplicacao.casosDeUso.UC_CalculaSubtotal;
+import com.bcopstein.aplicacao.casosDeUso.UC_ConfirmaVenda;
 import com.bcopstein.aplicacao.casosDeUso.UC_ConsultarProdutos;
 import com.bcopstein.aplicacao.casosDeUso.UC_ConsultarVendas;
 import com.bcopstein.aplicacao.dtos.ProdutoDTO;
@@ -26,16 +27,18 @@ public class Controller {
     private UC_AutorizaProduto autorizaProduto;
     private UC_CalculaSubtotal calculaSubtotal;
     private UC_ConsultarVendas consultarVendas;
+    private UC_ConfirmaVenda confirmaVenda;
     
     @Autowired
     public Controller(UC_ConsultarProdutos consultarProdutos, UC_AutorizaProduto autorizaProduto,
-            UC_CalculaSubtotal calculaSubtotal, UC_ConsultarVendas consultarVendas) {
+            UC_CalculaSubtotal calculaSubtotal, UC_ConsultarVendas consultarVendas, UC_ConfirmaVenda confirmaVenda) {
         this.consultarProdutos = consultarProdutos;
         this.autorizaProduto = autorizaProduto;
         this.calculaSubtotal = calculaSubtotal;
         this.consultarVendas = consultarVendas;
+        this.confirmaVenda = confirmaVenda;
     }
-
+    
     @GetMapping("/produtos")
     @CrossOrigin(origins = "*")
     public List<ProdutoDTO> todosProdutos() {
@@ -45,16 +48,13 @@ public class Controller {
     @PostMapping("/confirmacao")
     @CrossOrigin(origins = "*")
     public boolean confirmaVenda(@RequestBody final ItemVenda[] itens) { 
-        if(itens.length > 0)
-            return true;
-        else
-            return false;    
+        return confirmaVenda.run(itens);    
     }
 
     @GetMapping("/autorizacao")
     @CrossOrigin(origins = "*")
-    public boolean podeVender(@RequestParam final Integer codigo, @RequestParam final Integer quantidade) {
-        return autorizaProduto.run(codigo, quantidade);
+    public boolean podeVender(@RequestParam final Integer codProd, @RequestParam final Integer qtdade) {
+        return autorizaProduto.run(codProd, qtdade);
     }
 
     @PostMapping("/subtotal")

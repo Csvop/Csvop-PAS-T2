@@ -4,6 +4,6 @@ import java.util.List;
 
 import com.bcopstein.negocio.entidades.Produto;
 
-public interface IProdutosRepository {
+public interface IRepositoryProdutos {
     List<Produto> todos();
 }

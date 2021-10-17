@@ -3,17 +3,17 @@ package com.bcopstein.negocio.servicos;
 import java.util.List;
 
 import com.bcopstein.negocio.entidades.ItemEstoque;
-import com.bcopstein.negocio.repositorios.IEstoqueRepository;
+import com.bcopstein.negocio.repositorios.IRepositoryEstoque;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
 public class ServicoDeEstoque {
-    public IEstoqueRepository estoqueRepository;
+    public IRepositoryEstoque estoqueRepository;
 
     @Autowired
-    public ServicoDeEstoque(IEstoqueRepository estoqueRepository) {
+    public ServicoDeEstoque(IRepositoryEstoque estoqueRepository) {
         this.estoqueRepository = estoqueRepository;
     }
 
